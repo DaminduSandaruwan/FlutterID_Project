@@ -6,7 +6,15 @@ void main() => runApp(MaterialApp(
   )
 ));
 
-class DamiCard extends StatelessWidget {
+class DamiCard extends StatefulWidget {
+  @override
+  _DamiCardState createState() => _DamiCardState();
+}
+
+class _DamiCardState extends State<DamiCard> {
+
+  int anoLevel = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +24,15 @@ class DamiCard extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.grey[850],
         elevation: 0.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          setState(() {
+            anoLevel +=1;
+          });
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.grey[800],
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
@@ -30,7 +47,7 @@ class DamiCard extends StatelessWidget {
             ),
             Divider(
               height: 60.0,
-              color: Colors.grey[800],
+              color: Colors.white,
             ),
             Text(
               'NAME',
@@ -41,11 +58,11 @@ class DamiCard extends StatelessWidget {
             ),
             SizedBox(height: 10.0,),
             Text(
-              'Damindu',
+              'Damindu Sandaruwan',
               style: TextStyle(
                 color: Colors.amberAccent[200],
                 letterSpacing: 2.0,
-                fontSize: 28.0,
+                fontSize: 25.0,
                 fontWeight: FontWeight.bold,
 
               ),
@@ -60,15 +77,35 @@ class DamiCard extends StatelessWidget {
             ),
             SizedBox(height: 10.0,),
             Text(
-              '5',
+              '$anoLevel',
               style: TextStyle(
-                color: Colors.amberAccent[200],
+                color: Colors.red[800],
                 letterSpacing: 2.0,
                 fontSize: 28.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 30.0,),
+
+            Text(
+              'DESCRIPTION',
+              style: TextStyle(
+                color: Colors.grey,
+                letterSpacing: 2.0,
+              ),
+            ),
+            SizedBox(height: 10.0,),
+            Text(
+              "I'm Undergraduate Student of University of Sri Jayewardhanapura",
+              style: TextStyle(
+                color: Colors.blue[600],
+                letterSpacing: 2.0,
+                fontSize: 15.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 30.0,),
+
             Row(
               children: <Widget>[
                 Icon(
@@ -86,11 +123,12 @@ class DamiCard extends StatelessWidget {
                   ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
     );
   }
 }
+
 
